@@ -1,0 +1,16 @@
+[tool.black]
+line-length = 72
+exclude = '''
+  /(
+    | \.git
+    | \.github
+    | \.mypy_cache
+    | \.pytest_cache
+    | \.vscode
+    | \*.egg-info
+    | build
+    | dist
+    | notebooks
+    | venv
+  )/
+'''
