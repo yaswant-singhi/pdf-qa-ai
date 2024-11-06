@@ -8,15 +8,13 @@ PACKAGE_REQUIREMENTS = [
     "streamlit",
 ]
 
-DEV_REQUIREMENTS = [
-    "black"
-]
+DEV_REQUIREMENTS = ["black"]
 
 setup(
     name="",
     packages=find_packages(exclude=["tests"]),
     setup_requires=["setuptools", "wheel"],
-    install_requires = PACKAGE_REQUIREMENTS,
+    install_requires=PACKAGE_REQUIREMENTS,
     extras_require={
         "dev": DEV_REQUIREMENTS,
     },
