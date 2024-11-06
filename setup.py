@@ -6,7 +6,6 @@ PACKAGE_REQUIREMENTS = [
     "pdfplumber",
     "groq",
     "streamlit",
-    "gc",
 ]
 
 DEV_REQUIREMENTS = [
