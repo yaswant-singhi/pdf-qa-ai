@@ -3,6 +3,7 @@ from groq import Groq
 
 client = Groq(api_key="your_api_key")
 
+
 def read_pdf_document(pdf_file):
     text = ""
     with pdfplumber.open(pdf_file) as pdf:
@@ -10,8 +11,11 @@ def read_pdf_document(pdf_file):
             text += p.extract_text() or ""
     return text
 
+
 def generate_response(extracted_data, query):
-    prompt = f"extracted_data:{extracted_data}\nQuestion: {query}\nAnswer:"
+    prompt = (
+        f"extracted_data:{extracted_data}\nQuestion: {query}\nAnswer:"
+    )
     chat_completion = client.chat.completions.create(
         messages=[
             {

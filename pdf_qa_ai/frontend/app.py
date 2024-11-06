@@ -1,6 +1,6 @@
 import streamlit as st
 import gc
-from pdf_qa_ai.backend.main import read_pdf_document,generate_response
+from pdf_qa_ai.backend.main import read_pdf_document, generate_response
 
 
 # Set page config
@@ -38,16 +38,18 @@ if is_file_uploaded:
     if st.button("Ask Question"):
         if query:
             with st.spinner("Answering the question..."):
-                response = generate_response(extracted_data,query)
+                response = generate_response(extracted_data, query)
                 st.write("Response: ", response)
 
             # Clear memory
             gc.collect()
         else:
-            st.warning("Please enter the query to get the response")    
+            st.warning("Please enter the query to get the response")
 
 # sidebar Footer
 st.sidebar.markdown("### About")
 st.sidebar.info("Developed using Streamlit and Groq API.")
 st.sidebar.markdown("---")
-st.sidebar.write("For more information, visit [Groq](https://www.groq.com) and [Streamlit](https://streamlit.io).")
+st.sidebar.write(
+    "For more information, visit [Groq](https://www.groq.com) and [Streamlit](https://streamlit.io)."
+)
