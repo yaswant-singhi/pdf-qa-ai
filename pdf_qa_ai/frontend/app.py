@@ -25,12 +25,18 @@ st.sidebar.markdown("")
 # Main
 st.title(":page_facing_up: PDF Q&A AI Assitant")
 is_file_uploaded = st.file_uploader("Upload a PDF File", type="pdf")
+file_sample_view = st.checkbox("View Sample PDF File")
 
 if is_file_uploaded:
     st.success("pdf file uploaded successfully")
     extracted_data = read_pdf_document(is_file_uploaded)
     st.markdown("")
-    st.text_area("Extracted data", extracted_data, height=250)
+    if file_sample_view:
+        st.text_area(
+            "Sample Extracted data [limiting to 500 characters]",
+            extracted_data[:1000] + "...",
+            height=250,
+        )
 
     # Query Section
     query = st.text_input("Enter your query here")
